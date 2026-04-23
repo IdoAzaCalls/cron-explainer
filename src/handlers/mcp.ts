@@ -13,7 +13,7 @@ import type { Env } from "../worker";
  */
 const MANIFEST = {
   name: "cron-explainer",
-  version: "0.1.1",
+  version: "0.1.2",
   description:
     "Best-effort cron expression parser and explainer. Returns the next N fire times and a human-readable description. Zero PII; inputs are cron strings and IANA timezones only.",
   publisher: {

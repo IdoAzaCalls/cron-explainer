@@ -30,7 +30,7 @@ import { handleExplain } from "./explain";
 
 const PROTOCOL_VERSION = "2025-06-18";
 const SERVER_NAME = "cron-explainer";
-const SERVER_VERSION = "0.1.1";
+const SERVER_VERSION = "0.1.2";
 
 type JsonRpcId = string | number | null;
 

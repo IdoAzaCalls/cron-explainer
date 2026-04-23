@@ -1,9 +1,14 @@
 {
   "name": "cron-explainer",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "description": "Pay-per-call Cron Expression Explainer API — Cloudflare Workers runtime.",
-  "license": "SEE LICENSE IN docs/tos.md",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IdoAzaCalls/cron-explainer.git"
+  },
+  "homepage": "https://cron-explainer.cron-explainer-prod.workers.dev/",
   "main": "src/worker.ts",
   "scripts": {
     "dev": "wrangler dev",

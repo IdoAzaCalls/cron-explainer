@@ -2,7 +2,11 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.IdoAzaCalls/cron-explainer",
   "description": "Cron expression parser: explains any cron + returns next N fire times. Timezone-aware.",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "repository": {
+    "url": "https://github.com/IdoAzaCalls/cron-explainer",
+    "source": "github"
+  },
   "websiteUrl": "https://cron-explainer.cron-explainer-prod.workers.dev/",
   "remotes": [
     {
