@@ -1,0 +1,39 @@
+# Cloudflare Workers config — cron-explainer
+# Founder-run: `npx wrangler deploy` from this directory after `npm install`.
+name = "cron-explainer"
+main = "src/worker.ts"
+compatibility_date = "2026-04-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+# Cloudflare account (Azariaido@gmail.com).
+account_id = "2129367938bcc3f4c3888a72b5ab426f"
+
+# Route binding — uncomment after domain is set up.
+# [[routes]]
+# pattern = "cron.example.com/*"
+# zone_name = "example.com"
+
+# Secrets are NOT committed. Set via:
+#   npx wrangler secret put STRIPE_SECRET_KEY
+#   npx wrangler secret put STRIPE_WEBHOOK_SECRET
+# Missing secrets → handler runs in "test mode" per README.
+
+[vars]
+ENVIRONMENT = "production"
+BILLING_MODE = "live"                                     # "test" | "live" — live since 2026-04-23 smoke test
+PRICE_PER_CALL_EUR_CENTS = "1"
+STRIPE_PRICE_ID = "price_1TP8sZ3XyxRlEI74dTlM5lLJ"        # AICo Stripe live price — 0.01 EUR/call
+STRIPE_PRODUCT_ID = "prod_UNuhgtZDwyQFkw"                 # AICo Stripe live product
+BASE_URL = "https://cron-explainer.cron-explainer-prod.workers.dev"
+
+# KV namespace — stores api_key → balance records + session idempotency.
+[[kv_namespaces]]
+binding = "KEYS"
+id = "74fdf83b482e43ff839f704914cb15fd"
+
+# Bundle markdown legal docs as text so handlers/legal.ts can import them.
+[[rules]]
+type = "Text"
+globs = ["**/docs/*.md"]
+fallthrough = true

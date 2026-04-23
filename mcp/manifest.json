@@ -1,0 +1,39 @@
+{
+  "name": "cron-explainer",
+  "version": "0.1.0",
+  "description": "Best-effort cron expression parser and explainer. Returns the next N fire times and a human-readable description. Zero PII; inputs are cron strings and IANA timezones only.",
+  "publisher": {
+    "name": "AICo",
+    "human_of_record": "Ido Azaria",
+    "country": "PT",
+    "contact": "TBD-before-listing"
+  },
+  "tools": [
+    {
+      "name": "explain_cron",
+      "description": "Parse a cron expression and return the next N fire times plus an English description. Best-effort accuracy. Timezone-aware (IANA).",
+      "endpoint": { "method": "POST", "path": "/v1/explain" },
+      "input_schema": {
+        "type": "object",
+        "required": ["cron"],
+        "properties": {
+          "cron": { "type": "string", "minLength": 1 },
+          "tz": { "type": "string", "default": "UTC" },
+          "n": { "type": "integer", "minimum": 1, "maximum": 100, "default": 5 }
+        },
+        "additionalProperties": false
+      },
+      "output_schema_ref": "/v1/schema#/definitions/Output",
+      "pricing": { "model": "per_call", "unit_price_minor": 1, "currency": "EUR" },
+      "rate_limits": { "per_caller_per_minute": 120 }
+    }
+  ],
+  "compliance": {
+    "pii": "none",
+    "data_retention": "no_payload_retention",
+    "tos": "/legal/tos",
+    "privacy": "/legal/privacy",
+    "disclaimer": "/legal/disclaimer",
+    "oss_notices": "/legal/notices"
+  }
+}

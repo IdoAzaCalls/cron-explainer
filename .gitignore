@@ -1,0 +1,22 @@
+# Dependencies / build artifacts
+node_modules/
+.wrangler/
+dist/
+*.log
+
+# Local env / secrets (Wrangler uses .dev.vars for local secrets;
+# production secrets live in `wrangler secret put`, not in the repo)
+.env
+.env.*
+.dev.vars
+
+# Founder-operational files — internal to AICo, not for public repo
+DEPLOY.md
+PLAYBOOK.md
+build-log.md
+deploy.command
+deploy.sh
+FOUNDER.md
+
+# OS noise
+.DS_Store
